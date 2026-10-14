@@ -45,13 +45,11 @@ export default function Navbar({ className }: NavbarProps) {
             <div className="relative rounded-full border border-gray-200 bg-white/95 backdrop-blur-md shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-between px-3 sm:px-4 lg:px-6 xl:px-8 py-1 sm:py-1.5 lg:py-1.5 xl:py-2">
             {/* Logo Section */}
             <div className="flex items-center flex-shrink-0">
-                <Link to="/" className="flex items-center space-x-2.5 group">
-                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200 text-white">
-                    <Store className="w-5 h-5 sm:w-6 sm:h-6" />
-                  </div>
-                  <span className="font-bold text-lg sm:text-xl tracking-tight bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent">
-                    Campus Kiosk
+                <Link to="/" className="flex items-center space-x-1.5 group py-1">
+                  <span className="text-xl sm:text-2xl font-black tracking-tight text-gray-900 group-hover:text-purple-600 transition-colors">
+                    KIOSK
                   </span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
                 </Link>
             </div>
 
@@ -93,13 +91,11 @@ export default function Navbar({ className }: NavbarProps) {
         <div className="navbar fixed top-4 left-4 right-4 z-50 md:hidden" onMouseLeave={() => setActive(null)}>
             <div className="relative bg-white/95 backdrop-blur-md rounded-full border border-gray-200 shadow-lg px-4 py-3 flex items-center justify-between">
             {/* Mobile Logo */}
-            <Link to="/" className="flex items-center space-x-2">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center shadow-md text-white">
-                  <Store className="w-5 h-5" />
-                </div>
-                <span className="font-bold text-base sm:text-lg tracking-tight bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent">
-                  Campus Kiosk
+            <Link to="/" className="flex items-center space-x-1.5 py-1">
+                <span className="text-lg font-black tracking-tight text-gray-900">
+                  KIOSK
                 </span>
+                <span className="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
             </Link>
 
             {/* Mobile Menu Button */}

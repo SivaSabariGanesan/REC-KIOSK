@@ -99,15 +99,16 @@ const ForgotPasswordPage: React.FC = () => {
       <div className="w-full max-w-md">
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-xl p-8 border border-purple-100">
-          {/* Logo */}
+          {/* Header */}
           <div className="text-center mb-8">
-            <div className="flex justify-center mb-4">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-purple-200">
-                <Store className="w-8 h-8 text-white" />
-              </div>
-            </div>
-            <h1 className="text-2xl font-bold text-gray-900">Campus Kiosk</h1>
-            <p className="text-sm text-gray-500 mt-1">Reset your password</p>
+            <Link to="/" className="inline-flex items-center space-x-1.5 mb-4 group">
+              <span className="text-3xl font-black tracking-tight text-gray-900 group-hover:text-purple-600 transition-colors">
+                KIOSK
+              </span>
+              <span className="w-2 h-2 rounded-full bg-purple-600"></span>
+            </Link>
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900">Reset password</h1>
+            <p className="text-sm text-gray-500 mt-1">Enter your email to receive an OTP</p>
           </div>
 
           {step === 'email' && (
