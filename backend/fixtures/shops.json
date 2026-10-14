@@ -3,9 +3,9 @@
     "model": "api.shop",
     "pk": 1,
     "fields": {
-      "name": "REC Canteen",
-      "description": "Main canteen of REC College",
-      "location": "REC Campus, Main Building",
+      "name": "Campus Canteen",
+      "description": "Main campus canteen",
+      "location": "Campus, Main Building",
       "is_active": true,
       "is_open": true,
       "final_validity_time": "17:00:00",

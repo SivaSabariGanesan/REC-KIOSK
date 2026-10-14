@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { UserPlus, Eye, EyeOff, Zap, Mail, Lock, User, CreditCard, AlertCircle, GraduationCap, Briefcase } from 'lucide-react';
+import { UserPlus, Eye, EyeOff, Zap, Mail, Lock, User, CreditCard, AlertCircle, GraduationCap, Briefcase, Store } from 'lucide-react';
 import { useSiteConfig } from '../context/SiteConfigContext';
 import api from '../api';
 import { toast } from 'sonner';
@@ -305,13 +305,13 @@ const RegisterPage: React.FC = () => {
         <div className="bg-white rounded-2xl shadow-xl p-8 border border-purple-100">
           {/* Logo */}
           <div className="text-center mb-8">
-            <div className="flex justify-center mb-6">
-              <img 
-                src="/images/rec college.png" 
-                alt="REC College Logo" 
-                className="h-20 w-auto object-contain"
-              />
+            <div className="flex justify-center mb-4">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-purple-200">
+                <Store className="w-8 h-8 text-white" />
+              </div>
             </div>
+            <h1 className="text-2xl font-bold text-gray-900">Campus Kiosk</h1>
+            <p className="text-sm text-gray-500 mt-1">Create your account</p>
           </div>
 
           {/* Role Selection */}
@@ -629,7 +629,7 @@ const RegisterPage: React.FC = () => {
         {/* Footer */}
         <div className="text-center mt-8">
           <p className="text-gray-500 text-sm">
-            © 2024 REC College. All rights reserved.
+            © {new Date().getFullYear()} Campus Kiosk. All rights reserved.
           </p>
         </div>
       </div>

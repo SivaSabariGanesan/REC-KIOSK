@@ -125,7 +125,7 @@
             <div style="font-size: 20px;">🎉</div>
             <div>
             <div style="font-weight: 600; margin-bottom: 4px;">App Installed!</div>
-            <div style="font-size: 14px; opacity: 0.9;">REC Kiosk is now on your home screen</div>
+            <div style="font-size: 14px; opacity: 0.9;">Campus Kiosk is now on your home screen</div>
             </div>
         </div>
         `;
@@ -176,7 +176,7 @@
         const isEdge = /Edg/.test(navigator.userAgent);
         
         let instructions = '';
-        let title = 'Install REC Kiosk App';
+        let title = 'Install Campus Kiosk App';
         
         if (isIOS) {
         if (isSafari) {
@@ -337,7 +337,7 @@
                     <div className="absolute -top-0.5 -right-0.5 w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 bg-green-400 rounded-full border border-white animate-pulse" />
                 </div>
                 <div>
-                    <h3 className="text-white font-semibold text-xs sm:text-sm md:text-base">Install REC Kiosk</h3>
+                    <h3 className="text-white font-semibold text-xs sm:text-sm md:text-base">Install Campus Kiosk</h3>
                     <p className="text-purple-200 text-xs">Get the app experience</p>
                 </div>
                 </div>

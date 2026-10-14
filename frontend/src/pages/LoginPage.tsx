@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
-import { LogIn, Eye, EyeOff, Mail, Lock, AlertCircle } from 'lucide-react';
+import { LogIn, Eye, EyeOff, Mail, Lock, AlertCircle, Store } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useSiteConfig } from '../context/SiteConfigContext';
 import api from '../api';
@@ -107,13 +107,13 @@ const LoginPage: React.FC = () => {
         {/* Login Form */}
         <div className="bg-white rounded-2xl shadow-xl p-8 border border-purple-100">
           <div className="text-center mb-8">
-            <div className="flex justify-center mb-6">
-              <img 
-                src="/images/rec college.png" 
-                alt="REC College Logo" 
-                className="h-20 w-auto object-contain"
-              />
+            <div className="flex justify-center mb-4">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-purple-200">
+                <Store className="w-8 h-8 text-white" />
+              </div>
             </div>
+            <h1 className="text-2xl font-bold text-gray-900">Campus Kiosk</h1>
+            <p className="text-sm text-gray-500 mt-1">Sign in to your account</p>
           </div>
 
           {config && !config.login_enabled && (
@@ -216,7 +216,7 @@ const LoginPage: React.FC = () => {
         {/* Footer */}
         <div className="text-center mt-8">
           <p className="text-gray-500 text-sm">
-            © 2024 REC College. All rights reserved.
+            © {new Date().getFullYear()} Campus Kiosk. All rights reserved.
           </p>
         </div>
       </div>

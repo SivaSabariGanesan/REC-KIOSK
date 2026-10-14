@@ -23,7 +23,7 @@ const MaintenancePage: React.FC = () => {
         </button>
       </div>
       <footer className="mt-8 text-[var(--muted-text)] text-sm">
-        &copy; {new Date().getFullYear()} REC KIOSK. All rights reserved.
+        &copy; {new Date().getFullYear()} Campus Kiosk. All rights reserved.
       </footer>
     </div>
   );

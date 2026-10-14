@@ -2,7 +2,7 @@
 
     import { useState } from "react"
     import { Link, useNavigate } from "react-router-dom"
-    import { MenuIcon, X } from "lucide-react"
+    import { MenuIcon, X, Store } from "lucide-react"
     import { useAuth } from "../context/AuthContext"
 
     // Navbar Components
@@ -51,12 +51,13 @@ const HoveredLink = ({ children, href, ...rest }: HoveredLinkProps) => {
             <div className="relative rounded-full border border-gray-200 dark:border-white/[0.2] bg-white/90 dark:bg-black/90 backdrop-blur-md shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-10 py-1.5 sm:py-2 lg:py-2 xl:py-2.5">
             {/* Logo Section */}
             <div className="flex items-center flex-shrink-0">
-                <Link to="/" className="flex items-center">
-                <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rec%20college-DNQmI7rcIxK8zqroLBTQwojwQlMG4x.png"
-                    alt="REC Logo"
-                    className="w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 lg:w-16 lg:h-16 xl:w-18 xl:h-18 object-contain"
-                />
+                <Link to="/" className="flex items-center space-x-2.5 group">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200 text-white">
+                    <Store className="w-5 h-5" />
+                  </div>
+                  <span className="font-bold text-lg tracking-tight bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent">
+                    Campus Kiosk
+                  </span>
                 </Link>
             </div>
 
@@ -97,12 +98,13 @@ const HoveredLink = ({ children, href, ...rest }: HoveredLinkProps) => {
         <div className="fixed top-4 left-4 right-4 z-50 md:hidden">
             <div className="relative bg-white/90 dark:bg-black/90 backdrop-blur-md rounded-full border border-gray-200 dark:border-white/[0.2] shadow-lg px-4 py-3 flex items-center justify-between">
             {/* Mobile Logo */}
-            <Link to="/" className="flex items-center">
-                <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rec%20college-DNQmI7rcIxK8zqroLBTQwojwQlMG4x.png"
-                alt="REC Logo"
-                className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
-                />
+            <Link to="/" className="flex items-center space-x-2">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center shadow-md text-white">
+                  <Store className="w-5 h-5" />
+                </div>
+                <span className="font-bold text-base tracking-tight bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent">
+                  Campus Kiosk
+                </span>
             </Link>
 
             {/* Mobile Menu Button */}

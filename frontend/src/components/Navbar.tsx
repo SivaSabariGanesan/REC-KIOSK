@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { MenuIcon, X } from "lucide-react"
+import { MenuIcon, X, Store } from "lucide-react"
 import { useAuth } from "../context/AuthContext"
 
 // Navbar Components
@@ -45,17 +45,15 @@ export default function Navbar({ className }: NavbarProps) {
             <div className="relative rounded-full border border-gray-200 bg-white/95 backdrop-blur-md shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-between px-3 sm:px-4 lg:px-6 xl:px-8 py-1 sm:py-1.5 lg:py-1.5 xl:py-2">
             {/* Logo Section */}
             <div className="flex items-center flex-shrink-0">
-                <Link to="/" className="flex items-center">
-                <img
-                    src="/images/rec college.png"
-                    alt="REC Logo"
-                    className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-14 lg:h-14 xl:w-16 xl:h-16 object-contain"
-                />
+                <Link to="/" className="flex items-center space-x-2.5 group">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200 text-white">
+                    <Store className="w-5 h-5 sm:w-6 sm:h-6" />
+                  </div>
+                  <span className="font-bold text-lg sm:text-xl tracking-tight bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent">
+                    Campus Kiosk
+                  </span>
                 </Link>
             </div>
-
-            {/* Left spacer for balance */}
-            <div className="w-12 sm:w-14 md:w-16 lg:w-14 xl:w-16 flex-shrink-0"></div>
 
             {/* Account Dropdown - Right Side */}
             <div className="flex items-center">
@@ -95,12 +93,13 @@ export default function Navbar({ className }: NavbarProps) {
         <div className="navbar fixed top-4 left-4 right-4 z-50 md:hidden" onMouseLeave={() => setActive(null)}>
             <div className="relative bg-white/95 backdrop-blur-md rounded-full border border-gray-200 shadow-lg px-4 py-3 flex items-center justify-between">
             {/* Mobile Logo */}
-            <Link to="/" className="flex items-center">
-                <img
-                src="/images/rec college.png"
-                alt="REC Logo"
-                className="w-14 h-14 sm:w-16 sm:h-16 object-contain"
-                />
+            <Link to="/" className="flex items-center space-x-2">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center shadow-md text-white">
+                  <Store className="w-5 h-5" />
+                </div>
+                <span className="font-bold text-base sm:text-lg tracking-tight bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent">
+                  Campus Kiosk
+                </span>
             </Link>
 
             {/* Mobile Menu Button */}

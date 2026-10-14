@@ -9,7 +9,8 @@ import {
   Menu, 
   X,
   Receipt,
-  Users
+  Users,
+  Store
 } from 'lucide-react';
 
 const ShopAdminLayout: React.FC = () => {
@@ -72,14 +73,12 @@ const ShopAdminLayout: React.FC = () => {
         {/* Logo Section */}
         <div className="p-6 border-b border-gray-200">
           <div className="flex items-center space-x-3">
-              <img
-                src="https://students.rajalakshmi.org/images/rec_logo.png"
-                alt="REC KIOSK Logo"
-                className="h-10 w-auto"
-              />
-              <div className="flex h-16 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-purple-600 to-violet-600 text-white"></div>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-md flex-shrink-0">
+              <Store className="w-5 h-5" />
+            </div>
             <div>
-             
+              <span className="font-bold text-lg text-gray-900 tracking-tight leading-none block">Campus Kiosk</span>
+              <p className="text-xs text-purple-600 font-medium mt-0.5">Shop Manager</p>
             </div>
           </div>
         </div>

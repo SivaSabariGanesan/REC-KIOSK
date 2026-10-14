@@ -93,7 +93,6 @@ def send_otp_email(email, otp, user_name):
   </head>
   <body>
     <div class=\"email-card\">
-      <img src=\"https://students.rajalakshmi.org/images/rec_logo.png\" alt=\"REC Logo\" class=\"logo\"/>
       <h2>Verify your Campus Kiosk account</h2>
       <p style=\"text-align:center; margin-bottom: 8px;\">Hi {user_name},</p>
       <p style=\"text-align:center; margin: 12px 0 0 0;\">
@@ -242,7 +241,6 @@ def send_resend_otp_email(email, otp, user_name):
   </head>
   <body>
     <div class=\"email-card\">
-      <img src=\"https://students.rajalakshmi.org/images/rec_logo.png\" alt=\"REC Logo\" class=\"logo\"/>
       <h2>Campus Kiosk – One-Time Passcode (OTP)</h2>
       <p style=\"text-align:center; margin-bottom: 8px;\">Hi {user_name},</p>
       <p style=\"text-align:center; margin: 12px 0 0 0;\">
@@ -348,7 +346,6 @@ def send_transport_otp_email(email: str, otp: str, student_name: str) -> bool:
   </head>
   <body>
     <div class=\"email-card\">
-      <img src=\"https://students.rajalakshmi.org/images/rec_logo.png\" alt=\"REC Logo\" class=\"logo\"/>
       <h2>Bus Boarding Point OTP</h2>
       <p style=\"text-align:center; margin-bottom: 8px;\">Hello {student_name},</p>
       <p style=\"text-align:center; margin: 16px 0 0 0; font-weight:600; color:#dc2626; font-size:1.05em;\">

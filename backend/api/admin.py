@@ -111,12 +111,28 @@ class CustomUserAdmin(UserAdmin):
         has_reset_token = bool(user.password_reset_token)
         
         # Get recent password change logs if it's a shop admin
-        recent_password_changes = []
+        recent_password_changes_html = ""
         if user.role == 'shopAdmin' and user.shop:
             recent_password_changes = ShopLog.objects.filter(
                 shop=user.shop,
                 action='admin_password_changed'
             ).order_by('-created_at')[:5]
+            if recent_password_changes:
+                entries = []
+                for log in recent_password_changes:
+                    admin_user = log.details.get('admin_user', 'N/A') if isinstance(log.details, dict) else 'N/A'
+                    performed_by = log.performed_by.email if log.performed_by else 'Unknown'
+                    date_str = log.created_at.strftime('%Y-%m-%d %H:%M:%S')
+                    entries.append(
+                        f'<div class="log-entry">'
+                        f'<strong>Date:</strong> {date_str}<br>'
+                        f'<strong>Changed By:</strong> {performed_by}<br>'
+                        f'<strong>Details:</strong> {admin_user}'
+                        f'</div>'
+                    )
+                recent_password_changes_html = "<h2>Recent Password Changes</h2>" + "".join(entries)
+            else:
+                recent_password_changes_html = "<h2>Recent Password Changes</h2><p>No recent password changes found.</p>"
         
         # Return HTML with password reset information
         from django.http import HttpResponse
@@ -153,16 +169,7 @@ class CustomUserAdmin(UserAdmin):
                 <strong>Reset Token:</strong> {'Active' if has_reset_token else 'None'}
             </div>
             
-            {f'''
-            <h2>Recent Password Changes</h2>
-            {''.join([f'''
-            <div class="log-entry">
-                <strong>Date:</strong> {log.created_at.strftime('%Y-%m-%d %H:%M:%S')}<br>
-                <strong>Changed By:</strong> {log.performed_by.email if log.performed_by else 'Unknown'}<br>
-                <strong>Details:</strong> {log.details.get('admin_user', 'N/A')}
-            </div>
-            ''' for log in recent_password_changes]) if recent_password_changes else '<p>No recent password changes found.</p>'}
-            ''' if user.role == 'shopAdmin' and user.shop else ''}
+            {recent_password_changes_html}
             
             <h2>Actions</h2>
             <a href="{reverse('admin:api_user_change', args=[user.id])}" class="button">Back to User</a>
@@ -380,6 +387,24 @@ class ShopAdmin(admin.ModelAdmin):
                 action='admin_password_changed'
             ).order_by('-created_at')[:5]
             
+            recent_password_changes_html = ""
+            if recent_password_changes:
+                entries = []
+                for log in recent_password_changes:
+                    admin_user_detail = log.details.get('admin_user', 'N/A') if isinstance(log.details, dict) else 'N/A'
+                    performed_by = log.performed_by.email if log.performed_by else 'Unknown'
+                    date_str = log.created_at.strftime('%Y-%m-%d %H:%M:%S')
+                    entries.append(
+                        f'<div class="log-entry">'
+                        f'<strong>Date:</strong> {date_str}<br>'
+                        f'<strong>Changed By:</strong> {performed_by}<br>'
+                        f'<strong>Details:</strong> {admin_user_detail}'
+                        f'</div>'
+                    )
+                recent_password_changes_html = "<h2>Recent Password Changes</h2>" + "".join(entries)
+            else:
+                recent_password_changes_html = "<h2>Recent Password Changes</h2><p>No recent password changes found.</p>"
+            
             # Return HTML with password reset information
             from django.http import HttpResponse
             html = f'''
@@ -416,14 +441,7 @@ class ShopAdmin(admin.ModelAdmin):
                     <strong>Reset Token:</strong> {'Active' if has_reset_token else 'None'}
                 </div>
                 
-                <h2>Recent Password Changes</h2>
-                {''.join([f'''
-                <div class="log-entry">
-                    <strong>Date:</strong> {log.created_at.strftime('%Y-%m-%d %H:%M:%S')}<br>
-                    <strong>Changed By:</strong> {log.performed_by.email if log.performed_by else 'Unknown'}<br>
-                    <strong>Details:</strong> {log.details.get('admin_user', 'N/A')}
-                </div>
-                ''' for log in recent_password_changes]) if recent_password_changes else '<p>No recent password changes found.</p>'}
+                {recent_password_changes_html}
                 
                 <h2>Actions</h2>
                 <a href="{reverse('admin:api_shop_change', args=[object_id])}" class="button">Back to Shop</a>
